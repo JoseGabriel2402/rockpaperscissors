@@ -1,4 +1,5 @@
-
+let Humanpoints= 0
+let PCpoints= 0
 //gerar escolha do computador
 function getComputerChoice(){
  max= 4
@@ -12,7 +13,7 @@ function getComputerChoice(){
     }else{
     PCchoice= "rock"}
    }
- console.log(PCchoice)
+ console.log("Computer:",PCchoice)
  return PCchoice
 }
 //receber escolha do jogador 
@@ -22,17 +23,28 @@ function getHumanChoice(){
  let Hchoice= prompt("rock,paper or scissors?","rock").toLowerCase()
  if (!valid_answers.includes(Hchoice))
     {Hchoice= "Invalid answer!"}
- console.log(Hchoice)
+ console.log("Human:",Hchoice)
  return Hchoice
  }
 
-//comparar resultados e decidir ganhador
+
+//repetir Playround() para x rodadas e mostrar pontos
+function playGame(){
+let round= 0
+let finalResult=""
+while (round< 5) {
+   Playround()
+   ++round
+   console.log("round:",round)
+}
+}
+
+//comparar resultados,decidir ganhador da rodada e pontuar
+function Playround(){
+
 let Hchoice= getHumanChoice()
 let PCchoice= getComputerChoice()
-let humanScore= 0
-let pcScore= 0
-function CompareResults(){
-let result= "a"
+let result= ""
 if (Hchoice=== PCchoice)
    {result = "Tie!"
     }else{
@@ -42,9 +54,15 @@ if (Hchoice=== PCchoice)
       || 
          (Hchoice=== "paper" && PCchoice==="rock"))  
 
-         {result= "Human victory!"}
-     else{result= "Computer victory!"}}
+         {result= "Human scores!"
+          ++Humanpoints
+         }
+     else{result= "Computer scores!"
+          ++PCpoints
+     }}
 console.log(result)
-return result
-}   
-CompareResults()
+console.log("human points:",Humanpoints)
+console.log("computer points:",PCpoints)
+}
+playGame()
+
