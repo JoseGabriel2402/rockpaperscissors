@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+button{
+    width: 100px;
+    height: 50px;
+}
+#resultDisplay{
+    background-color: grey;
+    height: 300px;
+    width: 500px;
+}
